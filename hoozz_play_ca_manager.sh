@@ -37,6 +37,7 @@ work_init() {
 	./easyrsa build-ca
 	./easyrsa build-server-full server nopass
 	./easyrsa gen-dh
+	./easyrsa gen-crl
 	cd - 1> /dev/null
 
 	echo "$work_dir" > "$path_file"
