@@ -67,6 +67,12 @@ done.
 output: ... openvpn_client/client_phone_oppo_k11.ovpn
 ```
 
+## ubuntu_config_nat usage
+* Translate traffic on tun0 network card
+```shell
+sudo ./ubuntu_config_nat.sh
+```
+
 ## Useful Tips
 * Start OpenVPN: `openvpn --config openvpn_server/server.conf`
 * When you use `hoozz_play_ca_manager.sh -r xxx` to revoke the certificate, you need to restart OpenVPN to take effect
