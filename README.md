@@ -73,6 +73,24 @@ output: ... openvpn_client/client_phone_oppo_k11.ovpn
 sudo ./ubuntu_config_nat.sh
 ```
 
+## discovery_proxy usage
+* Since the tun network card does not support broadcast, it is necessary to add a proxy to the discovery protocol
+```shell
+$ cd discovery_proxy/
+
+$ make
+gcc -O2 -Wall -c main.c -o main.o -lpthread
+gcc -O2 -Wall main.o -o discover_proxy
+
+$ cd ..
+
+$ ./discovery_proxy.sh
+LAN: 192.168.31.250 (enp0s25)
+VPN: 10.0.0.1 (tun0)
+@@@@@@@@@@@@@@ Discover Proxy @@@@@@@@@@@@@@
+...
+```
+
 ## Useful Tips
 * Start OpenVPN: `openvpn --config openvpn_server/server.conf`
 * When you use `hoozz_play_ca_manager.sh -r xxx` to revoke the certificate, you need to restart OpenVPN to take effect
