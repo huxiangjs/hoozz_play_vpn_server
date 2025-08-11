@@ -1,4 +1,4 @@
-# Hoozz Play Server For Linux
+# Hoozz Play VPN Server For Linux
 
 ## Ubuntu version
 ```shell
@@ -10,6 +10,9 @@ Linux version 6.8.0-64-generic (buildd@lcy02-amd64-101) (x86_64-linux-gnu-gcc-12
 ```shell
 sudo apt install openvpn easy-rsa
 ```
+
+## Network topology diagram
+![diagram](images/network_topology_diagram.png)
 
 ## hoozz_play_ca_manager usage
 ```shell
