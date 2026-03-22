@@ -37,7 +37,8 @@ work_init() {
 	./easyrsa build-ca
 	./easyrsa build-server-full server nopass
 	./easyrsa gen-dh
-	./easyrsa gen-crl
+	EASYRSA_CRL_DAYS=3650 ./easyrsa gen-crl			# 3650 days
+	openssl crl -in pki/crl.pem -noout -nextupdate
 	cd - 1> /dev/null
 
 	echo "$work_dir" > "$path_file"
@@ -88,7 +89,8 @@ ca_revoke() {
 		read client_name
 	done
 	./easyrsa revoke "$client_name"
-	./easyrsa gen-crl
+	EASYRSA_CRL_DAYS=3650 ./easyrsa gen-crl			# 3650 days
+	openssl crl -in pki/crl.pem -noout -nextupdate
 	cd - 1> /dev/null
 }
 
